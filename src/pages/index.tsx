@@ -1,47 +1,11 @@
 import { Inter } from "next/font/google";
 import {Check} from "lucide-react";
-import {
-  Claude,
-  Gemini,
-  OpenAI,
-  Spark,
-  Tongyi,
-  Baichuan,
-  ByteDance,
-  Meta,
-  Hunyuan,
-  Midjourney,
-  Stability,
-  Moonshot,
-  DeepSeek,
-  Dalle,
-  Groq,
-  OpenRouter,
-  Qingyan,
-  Azure,
-} from "@lobehub/icons";
+import dynamic from "next/dynamic";
+
+
+const LLMIcons = dynamic(() => import(`../components/LLMIcons`), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"] });
-
-const icons = [
-  Dalle,
-  Azure,
-  Claude,
-  Gemini,
-  Spark,
-  Qingyan,
-  Tongyi,
-  Baichuan,
-  ByteDance,
-  Meta,
-  Hunyuan,
-  Midjourney,
-  Stability,
-  Moonshot,
-  DeepSeek,
-  Groq,
-  OpenRouter,
-];
 
 export default function Home() {
   return (
@@ -51,6 +15,9 @@ export default function Home() {
       >
         <div
           className={`w-full h-full flex flex-row p-4 items-center rounded-lg shadow-lg bg-background border relative`}
+          style={{
+            borderColor: `hsl(var(--border-hover))`,
+          }}
         >
           <div
             className={`w-fit h-fit flex flex-col items-center justify-items-center p-8 pl-16`}
@@ -111,25 +78,14 @@ export default function Home() {
             <div className={`flex flex-row items-center space-x-4 mt-4 text-sm`}>
               <div className={`flex flex-row items-center text-green-500`}>
                 <Check className={`w-3.5 h-3.5 mr-1`}/>
-                Chat
+                C Side
               </div>
               <div className={`flex flex-row items-center text-green-500`}>
                 <Check className={`w-3.5 h-3.5 mr-1`}/>
-                API
-              </div>
-              <div className={`flex flex-row items-center text-green-500`}>
-                <Check className={`w-3.5 h-3.5 mr-1`}/>
-                Dashboard
+                B Side
               </div>
             </div>
-            {/*// make the latest line centered in grid:*/}
-            <div className={`grid grid-cols-7 mt-2 gap-2 w-full`}>
-              <OpenAI.Avatar size={28} type={`gpt3`}/>
-              <OpenAI.Avatar size={28} type={`gpt4`}/>
-              {icons.map((Icon, index) => (
-                <Icon.Avatar key={index} size={28}/>
-              ))}
-            </div>
+            <LLMIcons />
           </div>
           <div className={`h-full flex-grow flex ml-6 p-6 z-10`}>
             <div className={`h-full grid grid-cols-2 gap-2.5`}>
@@ -139,8 +95,8 @@ export default function Home() {
               <img src={`/screenshot/mask-editor.png`} alt={``} className={`border p-0.5 rounded-md`}/>
             </div>
           </div>
-          <div className={`absolute w-52 h-52 right-0 bottom-0`} style={{
-            backgroundImage: `linear-gradient( 45deg, rgba(0, 126, 255, .4) 50%, rgba(73, 164, 255, .2) )`,
+          <div className={`absolute w-64 h-64 right-0 bottom-0`} style={{
+            backgroundImage: `linear-gradient( 45deg, rgba(0, 126, 255, .3) 50%, rgba(73, 164, 255, .2) )`,
             filter: `blur(50px)`,
           }}/>
         </div>
