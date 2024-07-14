@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -21,6 +21,7 @@ const config = {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
+        shadow: "hsl(var(--shadow))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -58,6 +59,13 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        card: "0 0 0 1px hsl(var(--border)), 0 2px 4px hsl(var(--shadow))",
+        popover: "0 0 0 1px hsl(var(--border)), 0 2px 4px hsl(var(--shadow))",
+        input: "0 0 0 1px hsl(var(--border)), 0 2px 4px hsl(var(--shadow))",
+        button: "0 0 0 1px hsl(var(--border)), 0 2px 4px hsl(var(--shadow))",
+        none: "none",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -75,6 +83,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
